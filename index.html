@@ -5,11 +5,11 @@
 <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
 <META HTTP-EQUIV="Expires" CONTENT="-1">
 <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
-<title>treevis.net</title>
-<link rel="stylesheet" type="text/css" href="design.css"/>
+<title>SecVizBrowser</title>
+<link rel="stylesheet" type="text/css" href="styles.css"/>
+<link rel="shortcut icon" href="images/logo_favicon.png" type="image/x-icon">
 <script src="jquery-3.3.1.min.js" type="text/javascript"></script>
 </head>
-<body>
 <script type="text/javascript">
 	//declare global variables
 	version = "v.10-APR-2019";
@@ -65,17 +65,17 @@
 		$(window).scrollTop(0);
 	}
 </script>
+
+<body>
 <div id="top" class="container">
-	<div id="header">
-	<center>
-	<br/>
-		<b>treevis.net - A Visual Bibliography of Tree Visualization 2.0 by <a href="http://hjschulz.net" target="_blank" style="color:#FFFFFF;">Hans-J&ouml;rg Schulz</a></b>
-		<div style="font-size:20px;">&nbsp;</div>
-	</center>
-	</div>
-	<div id="hr1"></div>
+	<header class="header">
+		<div class="header_container">
+			<div class="logo"><span id="logo_red">Sec</span><span id="logo_grey">Viz</span>Browser</div>
+			<!--<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, quas.</p>-->
+			<button id="burger_button"><img src="/images/burger.png" alt=""></button>
+		</div>
 	
-	<div id="visbuttons" class="topleftbuttons">
+	<!--<div id="visbuttons" class="topleftbuttons">
 	<input type="button" name="citebutton" class="visbutton" value="How to cite this site?" onclick="window.open('https://doi.org/10.1109/MCG.2011.103','_blank');"><br />
 	<select id="othersurveys" class="visbutton">
 		<option value="0" selected="selected">Check out other surveys!</option>
@@ -97,9 +97,9 @@
 		<option value="6">Time Visualization</option>
 		<option value="17">Timeline Visualization</option>
 	</select> 
-	</div>
+	</div>-->
 	
-	<div id="buttons" class="toprightbuttons" align="right">
+	<!--<div id="buttons" class="toprightbuttons" align="right">
 	<a href="treevis.bib" target="_blank" title="BibTeX file for the entire site..."><img src="images/bibtex.png"/></a>
 	&nbsp;	
 	<a href="mailto:contact@treevis.net" target="_blank" title="eMail for comments..."><img src="images/mail.png"/></a>
@@ -107,54 +107,55 @@
 	<a href="https://twitter.com/treevisproject" target="_blank" title="Website news via Twitter..."><img src="images/twitter.png"/></a>
 	<br/>
 	<p id="version" align="right"></p>
-	</div>
+	</div>-->
 	
-	<div id="menu">
-	<center>
-		<table border="0" cellspacing="8" cellpadding="0">
-			<tr>
-				<td align="center" colspan="4">Dimensionality</td>
-				<td width="30">&nbsp;</td>
-				<td align="center" colspan="4">Representation</td>
-				<td width="30">&nbsp;</td>
-				<td align="center" colspan="4">Alignment</td>
-				<td width="30">&nbsp;</td>
-				<td align="center">Fulltext Search</td>
-				<td width="30">&nbsp;</td>
-				<td align="center">Techniques Shown</td>
-			</tr>
-			<tr>
-				<td><a href="#" id="d0" class='filterbutton' style="background-image:url(images/0on_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">all</span></a></td>
-				<td><a href="#" id="d2" class='filterbutton' style="background-image:url(images/d2off_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">2D</span></a></td>
-				<td><a href="#" id="d3" class='filterbutton' style="background-image:url(images/d3off_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">3D</span></a></td>				
-				<td><a href="#" id="dH" class='filterbutton' style="background-image:url(images/dHoff_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">hybrid</span></a></td>	
-				<td>&nbsp;</td>
-				
-				<td><a href="#" id="r0" class='filterbutton' style="background-image:url(images/0on_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">all</span></a></td>
-				<td><a href="#" id="rE" class='filterbutton' style="background-image:url(images/rEoff_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">explicit</span></a></td>
-				<td><a href="#" id="rI" class='filterbutton' style="background-image:url(images/rIoff_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">implicit</span></a></td>				
-				<td><a href="#" id="rH" class='filterbutton' style="background-image:url(images/rHoff_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">hybrid</span></a></td>	
-				<td>&nbsp;</td>				
-				
-				<td><a href="#" id="a0" class='filterbutton' style="background-image:url(images/0on_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">all</span></a></td>
-				<td><a href="#" id="aA" class='filterbutton' style="background-image:url(images/aAoff_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">axis-parallel</span></a></td>
-				<td><a href="#" id="aR" class='filterbutton' style="background-image:url(images/aRoff_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">radial</span></a></td>				
-				<td><a href="#" id="aF" class='filterbutton' style="background-image:url(images/aFoff_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">free</span></a></td>	
-				<td>&nbsp;</td>				
+		<div class="header_menu">
+			<div class="header_menu_container">
+				<table class="header_table">
+					<tr>
+						<td colspan="4">Dimensionality</td>
+						<td width="30">&nbsp;</td>
+						<td colspan="4">Representation</td>
+						<td width="30">&nbsp;</td>
+						<td colspan="4">Alignment</td>
+						<td width="30">&nbsp;</td>
+						<td>Fulltext Search</td>
+						<td width="30">&nbsp;</td>
+						<td>Techniques Shown</td>
+					</tr>
+					<tr>
+						<td><a href="#" id="d0" class='filterbutton' style="background-image:url(images/0on_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">all</span></a></td>
+						<td><a href="#" id="d2" class='filterbutton' style="background-image:url(images/d2off_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">2D</span></a></td>
+						<td><a href="#" id="d3" class='filterbutton' style="background-image:url(images/d3off_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">3D</span></a></td>				
+						<td><a href="#" id="dH" class='filterbutton' style="background-image:url(images/dHoff_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">hybrid</span></a></td>	
+						<td>&nbsp;</td>
+						
+						<td><a href="#" id="r0" class='filterbutton' style="background-image:url(images/0on_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">all</span></a></td>
+						<td><a href="#" id="rE" class='filterbutton' style="background-image:url(images/rEoff_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">explicit</span></a></td>
+						<td><a href="#" id="rI" class='filterbutton' style="background-image:url(images/rIoff_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">implicit</span></a></td>				
+						<td><a href="#" id="rH" class='filterbutton' style="background-image:url(images/rHoff_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">hybrid</span></a></td>	
+						<td>&nbsp;</td>				
+						
+						<td><a href="#" id="a0" class='filterbutton' style="background-image:url(images/0on_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">all</span></a></td>
+						<td><a href="#" id="aA" class='filterbutton' style="background-image:url(images/aAoff_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">axis-parallel</span></a></td>
+						<td><a href="#" id="aR" class='filterbutton' style="background-image:url(images/aRoff_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">radial</span></a></td>				
+						<td><a href="#" id="aF" class='filterbutton' style="background-image:url(images/aFoff_40.png);">&nbsp;<span style="position: relative; top:40px; left:10px">free</span></a></td>	
+						<td>&nbsp;</td>				
 
-				<td valign="middle">
-					<input type="text" id="pattern" onkeyup="filter()"/>
-					<a href="#" id="clearbutton" style="background-image:url(images/clear.png);"/>
-				</td>
-				<td>&nbsp;</td>
-				<td valign="middle">
-					<center><div id="counter">---</div></center>
-				</td>				
-			</tr>
-		</table>
-		<div style="font-size:8px;">&nbsp;</div>
-	</center>
-	</div>
+						<td class="search" valign="middle">
+							<input type="text" id="pattern" onkeyup="filter()"/>
+							<a href="#" id="clearbutton"><img src="images/cross.svg" alt=""></a>
+						</td>
+						<td>&nbsp;</td>
+						<td valign="middle">
+							<div id="counter">---</div>
+						</td>				
+					</tr>
+				</table>
+				<div style="font-size:8px;">&nbsp;</div>
+			</div>
+		</div>
+	</header>
 </div>
 
 <script type="text/javascript">
@@ -250,155 +251,161 @@ $("#clearbutton").click(function(){$('#pattern').val("");filter();return false;}
 </script>
 
 <div id="content" class="container">
-<center>
-<a id="closebutton" href="javascript:closedetail();" title="close"><img style="border:none;" src="images/close.png"/></a>
-<script type="text/javascript">
-var xmlDoc;
-var imageformat = "png";
-
-//fetch XML
-$.ajax({type:"GET",async:false,url:"treevis.xml",dataType:"xml",success:function(xml) {xmlDoc=xml;}});
-techcounter = 0;
-
-$("item",xmlDoc).each(function() {
-	techcounter++;
-	var id = $(this).attr("id");
-	if(id.indexOf("_")<0) {var baseid=id;} else {var baseid=id.substring(0,id.indexOf("_"));}
-
-	//create thumbnail view
-	document.write("<a class='preview' id='"+id+
-					"pv' dim='"+$(this).attr("dim")+
-					"' rep='"+$(this).attr("rep")+
-					"' pos='"+$(this).attr("pos")+
-					"' description=\""+$("> name",this).text()+
-					" "+$("> authors",this).text().replace(/%26/g,"&")+
-					" "+$("> title",this).text()+
-					" "+$("> publication",this).text().replace(/%26/g,"&")+
-					" "+$("> year",this).text()+
-					"\" href='#"+id+"'><img src='thumbs100"+imageformat+"\/"+id+
-					"."+imageformat+"' alt='"+$("> name",this).text()+
-					"' class='image'\/><\/a>");
+<div class="content_container">
+<a id="closebutton" href="javascript:closedetail();" title="close"><img id="close_window" src="images/close_window.png"/></a>
+	<script type="text/javascript">
+	var xmlDoc;
+	var imageformat = "png";
 	
-	//create tooltip
-	document.write("<span id='"+id+"tt' class='previewtt'>"+$("> name",this).text()+" ("+$("> year",this).text()+")<\/span>");
+	//fetch XML
+	$.ajax({type:"GET",async:false,url:"treevis.xml",dataType:"xml",success:function(xml) {xmlDoc=xml;}});
+	techcounter = 0;
 	
-	//create detailed view
-	var pretext = $("> title",this).attr("pretext");
-	if (typeof pretext !== 'undefined' && pretext !== false) {pretext = pretext + " ";} else {pretext = "";}
-	var posttext = $("> title",this).attr("posttext");
-	if (typeof posttext == 'undefined' || posttext == false) {posttext = "";}
-	document.write("<table id='"+id+
-				   "dv' class='detail' border='0' cellpadding='0' cellspacing='0' width='"+detailwidth+
-				   "'><tr valign='top'><th rowspan='2' class='detailimage' width='202'><img id='"+id+
-				   "hres' src='images\/cthrough200.png' border=1 width=200 height=200 style='background-image:url(thumbs100"+imageformat+"\/"+id+				   
-				   "."+imageformat+");background-size:100%;' loaded='0'\/><\/th><td align='left' class='detailheadline'><h2>"+$("> name",this).text()+" ("+$("> year",this).text()+
-				   ")<\/h2><h3>by "+$("> authors",this).text().replace(/%26/g,"&")+
-				   ".<\/h3><\/td><td align='right' class='detailicons' width='95'><img src='images\/d"+$(this).attr("dim")+
-				   "on_25.png' style='border-width:0px'\/>&nbsp;<img src='images\/r"+$(this).attr("rep")+
-				   "on_25.png' style='border-width:0px'\/>&nbsp;<img src='images\/a"+$(this).attr("pos")+
-				   "on_25.png' style='border-width:0px'\/><\/td><\/tr><tr valign='top'><th colspan='2' align='left' class='detailcontent'><h4>"+pretext+
-				   "<a href='"+$("> url",this).text().replace(/%26/g,"&")+
-				   "' target='_blank'>"+$("> title",this).text().replace(/%26/g,"&")+
-				   "<\/a>"+posttext+
-				   "&nbsp;&nbsp;<a href='bibentries\/"+baseid+".bib'><img src='images\/bib.png'\/><\/a>"+
-				   "&nbsp;<a href='bibentries\/"+baseid+".ris'><img src='images\/ris.png'\/><\/a>"+
-				   "<\/h4><h5>"+$("> publication",this).text().replace(/%26/g,"&")+".<\/h5>");
-
-	var related = $('> related',this)[0];
-	if (related) {
-		document.write("<h6><b>Related publications:<\/b><ul class='noindent'>");
-		$("> entry",related).each(function(idx) {
-			var relid = $(this).attr("id");
-		    pretext = $("> title",this).attr("pretext");
-			if (typeof pretext !== 'undefined' && pretext !== false) {pretext = pretext + " ";} else {pretext = "";}
-			posttext = $("> title",this).attr("posttext");
-			if (typeof posttext == 'undefined' || posttext == false) {posttext = "";}
-			document.write("<li>"+$("> authors",this).text().replace(/%26/g,"&")+" "+$("> year",this).text()+": "+pretext+
-						   "<a href='"+$("> url",this).text().replace(/%26/g,"&")+"' target='_blank'>"+$("> title",this).text().replace(/%26/g,"&")+"<\/a>"+posttext+
-						   "&nbsp;&nbsp;<a href='bibentries\/"+relid+".bib'><img src='images\/bib.png'\/><\/a>"+
-							"&nbsp;<a href='bibentries\/"+relid+".ris'><img src='images\/ris.png'\/><\/a><\/li>");
-		});
-		document.write("<\/ul><\/h6>");
-	}
+	$("item",xmlDoc).each(function() {
+		techcounter++;
+		var id = $(this).attr("id");
+		if(id.indexOf("_")<0) {var baseid=id;} else {var baseid=id.substring(0,id.indexOf("_"));}
 	
-	document.write("<\/th><\/tr><\/table>");
+		//create thumbnail view
+		document.write("<a class='preview' id='"+id+
+						"pv' dim='"+$(this).attr("dim")+
+						"' rep='"+$(this).attr("rep")+
+						"' pos='"+$(this).attr("pos")+
+						"' description=\""+$("> name",this).text()+
+						" "+$("> authors",this).text().replace(/%26/g,"&")+
+						" "+$("> title",this).text()+
+						" "+$("> publication",this).text().replace(/%26/g,"&")+
+						" "+$("> year",this).text()+
+						"\" href='#"+id+"'><img src='thumbs100"+imageformat+"\/"+id+
+						"."+imageformat+"' alt='"+$("> name",this).text()+
+						"' class='image'\/><\/a>");
+		
+		//create tooltip
+		document.write("<span id='"+id+"tt' class='previewtt'>"+$("> name",this).text()+" ("+$("> year",this).text()+")<\/span>");
+		
+		//create detailed view
+		var pretext = $("> title",this).attr("pretext");
+		if (typeof pretext !== 'undefined' && pretext !== false) {pretext = pretext + " ";} else {pretext = "";}
+		var posttext = $("> title",this).attr("posttext");
+		if (typeof posttext == 'undefined' || posttext == false) {posttext = "";}
+		document.write("<table id='"+id+
+					   "dv' class='detail' border='0' cellpadding='0' cellspacing='0' width='"+detailwidth+
+					   "'><tr valign='top'><th rowspan='2' class='detailimage' width='202'><img id='"+id+
+					   "hres' src='images\/cthrough200.png' border=1 width=200 height=200 style='background-image:url(thumbs100"+imageformat+"\/"+id+				   
+					   "."+imageformat+");background-size:100%;' loaded='0'\/><\/th><td align='left' class='detailheadline'><h2>"+$("> name",this).text()+" ("+$("> year",this).text()+
+					   ")<\/h2><h3>by "+$("> authors",this).text().replace(/%26/g,"&")+
+					   ".<\/h3><\/td><td align='right' class='detailicons' width='95'><img src='images\/d"+$(this).attr("dim")+
+					   "on_25.png' style='border-width:0px'\/>&nbsp;<img src='images\/r"+$(this).attr("rep")+
+					   "on_25.png' style='border-width:0px'\/>&nbsp;<img src='images\/a"+$(this).attr("pos")+
+					   "on_25.png' style='border-width:0px'\/><\/td><\/tr><tr valign='top'><th colspan='2' align='left' class='detailcontent'><h4>"+pretext+
+					   "<a href='"+$("> url",this).text().replace(/%26/g,"&")+
+					   "' target='_blank'>"+$("> title",this).text().replace(/%26/g,"&")+
+					   "<\/a>"+posttext+
+					   "&nbsp;&nbsp;<a href='bibentries\/"+baseid+".bib'><img src='images\/bib.png'\/><\/a>"+
+					   "&nbsp;<a href='bibentries\/"+baseid+".ris'><img src='images\/ris.png'\/><\/a>"+
+					   "<\/h4><h5>"+$("> publication",this).text().replace(/%26/g,"&")+".<\/h5>");
 	
-});
-
-$("#counter").text(techcounter);
-
-var xOffset = 10;
-var yOffset = 180;
-
-//open up details on any initial technique specified in the URL
-var show_onload = window.location.hash.substring(1);
-if (document.getElementById(show_onload+"dv")) {
-	detail_id = show_onload+"dv";
-	$("#"+show_onload+"hres").attr("src","thumbs200\/"+show_onload+".png").attr("loaded","1");
-	var detailview = $("#"+detail_id);
-	var preview = $("#"+show_onload+"pv");
-	var pos = preview.offset();
-	var xCoord = pos.left;
-	if (xCoord>=$(window).width()/2) {xCoord += preview.width()+xOffset;} //use the right side boundary if the preview is on the right side of the screen
-	xCoord -= (detailwidth+2*xOffset)/$(window).width()*xCoord;
-	var yCoord = pos.top - yOffset - preview.width()/2; //using preview.width(), as height() of the <a>-tag doesn't measure it correctly and width=height in this case anyways
-	if (yCoord-$(window).scrollTop()+detailview.height()>$(window).height()-250) {yCoord -= detailview.height();}
-	//auto-scroll to the detail view
-	$(window).scrollTop(yCoord-$(window).height()/2+yOffset+detailview.height()/2);
-    detailview.css({'visibility':'visible','top':(yCoord)+"px",'left':(xCoord)+"px"}).fadeIn("fast");
-	$("#closebutton").css({'visibility':'visible','top':(yCoord)+"px",'left':(xCoord)+"px"}).fadeIn("fast");
-}
-
-//program logic for the detail view
-$("a.preview").click(function(e){
-	var plain_id=$(this).attr("id").slice(0,-2);
-	if (detail_id != plain_id+"dv") {
-		//close detail view if it is shown
-		closedetail();
-		//show details of clicked
-		detail_id = plain_id+"dv";
-		//add highres picture to detailview
-		var highrespic = $("#"+plain_id+"hres");
-		if (highrespic.attr("loaded") == "0") {highrespic.attr("src","thumbs200"+imageformat+"\/"+plain_id+"."+imageformat).attr("loaded","1");}
-		//position and show detailview
+		var related = $('> related',this)[0];
+		if (related) {
+			document.write("<h6><b>Related publications:<\/b><ul class='noindent'>");
+			$("> entry",related).each(function(idx) {
+				var relid = $(this).attr("id");
+				pretext = $("> title",this).attr("pretext");
+				if (typeof pretext !== 'undefined' && pretext !== false) {pretext = pretext + " ";} else {pretext = "";}
+				posttext = $("> title",this).attr("posttext");
+				if (typeof posttext == 'undefined' || posttext == false) {posttext = "";}
+				document.write("<li>"+$("> authors",this).text().replace(/%26/g,"&")+" "+$("> year",this).text()+": "+pretext+
+							   "<a href='"+$("> url",this).text().replace(/%26/g,"&")+"' target='_blank'>"+$("> title",this).text().replace(/%26/g,"&")+"<\/a>"+posttext+
+							   "&nbsp;&nbsp;<a href='bibentries\/"+relid+".bib'><img src='images\/bib.png'\/><\/a>"+
+								"&nbsp;<a href='bibentries\/"+relid+".ris'><img src='images\/ris.png'\/><\/a><\/li>");
+			});
+			document.write("<\/ul><\/h6>");
+		}
+		
+		document.write("<\/th><\/tr><\/table>");
+		
+	});
+	
+	$("#counter").text(techcounter);
+	
+	var xOffset = 10;
+	var yOffset = 180;
+	
+	//open up details on any initial technique specified in the URL
+	var show_onload = window.location.hash.substring(1);
+	if (document.getElementById(show_onload+"dv")) {
+		detail_id = show_onload+"dv";
+		$("#"+show_onload+"hres").attr("src","thumbs200\/"+show_onload+".png").attr("loaded","1");
 		var detailview = $("#"+detail_id);
-		var xCoord = e.pageX - (detailwidth+2*xOffset)/$(window).width()*e.pageX + xOffset;
-		var yCoord = e.pageY - yOffset;
-		if (yCoord-$(window).scrollTop()+detailview.height()>$(window).height()-250) {yCoord -= detailview.height()+20;}
-		if (yCoord-$(window).scrollTop()<=0) {yCoord = e.pageY - yOffset - detailview.height()/2;}
+		var preview = $("#"+show_onload+"pv");
+		var pos = preview.offset();
+		var xCoord = pos.left;
+		if (xCoord>=$(window).width()/2) {xCoord += preview.width()+xOffset;} //use the right side boundary if the preview is on the right side of the screen
+		xCoord -= (detailwidth+2*xOffset)/$(window).width()*xCoord;
+		var yCoord = pos.top - yOffset - preview.width()/2; //using preview.width(), as height() of the <a>-tag doesn't measure it correctly and width=height in this case anyways
+		if (yCoord-$(window).scrollTop()+detailview.height()>$(window).height()-250) {yCoord -= detailview.height();}
+		//auto-scroll to the detail view
+		$(window).scrollTop(yCoord-$(window).height()/2+yOffset+detailview.height()/2);
 		detailview.css({'visibility':'visible','top':(yCoord)+"px",'left':(xCoord)+"px"}).fadeIn("fast");
-		//add closebutton on top of it
-		$("#closebutton").css({'visibility':'visible','top':(yCoord)+"px",'left':(xCoord)+"px"}).fadeIn("slow");
-	} else {
-		//hide details of clicked
-		closedetail();
-		return false; //to prevent the propagation of the click, which messes up the anchor removal in the URL
+		$("#closebutton").css({'visibility':'visible','top':(yCoord)+"px",'left':(xCoord)+"px"}).fadeIn("fast");
 	}
-});
+	
+	//program logic for the detail view
+	$("a.preview").click(function(e){
+		var plain_id=$(this).attr("id").slice(0,-2);
+		if (detail_id != plain_id+"dv") {
+			//close detail view if it is shown
+			closedetail();
+			//show details of clicked
+			detail_id = plain_id+"dv";
+			//add highres picture to detailview
+			var highrespic = $("#"+plain_id+"hres");
+			if (highrespic.attr("loaded") == "0") {highrespic.attr("src","thumbs200"+imageformat+"\/"+plain_id+"."+imageformat).attr("loaded","1");}
+			//position and show detailview
+			var detailview = $("#"+detail_id);
+			var xCoord = e.pageX - (detailwidth+2*xOffset)/$(window).width()*e.pageX + xOffset;
+			var yCoord = e.pageY - yOffset;
+			if (yCoord-$(window).scrollTop()+detailview.height()>$(window).height()-250) {yCoord -= detailview.height()+20;}
+			if (yCoord-$(window).scrollTop()<=0) {yCoord = e.pageY - yOffset - detailview.height()/2;}
+			detailview.css({'visibility':'visible','top':(yCoord)+"px",'left':(xCoord)+"px"}).fadeIn("fast");
+			//add closebutton on top of it
+			$("#closebutton").css({'visibility':'visible','top':(yCoord)+"px",'left':(xCoord)+"px"}).fadeIn("slow");
+		} else {
+			//hide details of clicked
+			closedetail();
+			return false; //to prevent the propagation of the click, which messes up the anchor removal in the URL
+		}
+	});
+	
+	//program logic for the tooltips
+	$("a.preview").hover(function(e){
+		var detailtt = $("#"+$(this).attr("id").slice(0,-2)+"tt");
+		var xCoord = e.pageX - (detailtt.width()+2*xOffset)/$(window).width()*e.pageX + xOffset;
+		var yCoord = e.pageY - yOffset+20;
+		if (yCoord+detailtt.height()>$(window).height()-250) {yCoord -= detailtt.height()+45;}
+		detailtt.css({'visibility':'visible','top':(yCoord)+"px",'left':(xCoord)+"px"}).fadeIn("fast");
+	   },
+	function(){
+		$("#"+$(this).attr("id").slice(0,-2)+"tt").css({'visibility':'hidden','display':'none'});
+	   });
+	   
+	$("a.preview").mousemove(function(e){
+		var detailtt = $("#"+$(this).attr("id").slice(0,-2)+"tt");
+		var xCoord = e.pageX - (detailtt.width()+2*xOffset)/$(window).width()*e.pageX + xOffset;
+		var yCoord = e.pageY - yOffset+20;
+		if (yCoord+detailtt.height()>$(window).height()-250) {yCoord -= detailtt.height()+45;}	
+		detailtt.css({'top':(yCoord)+"px",'left':(xCoord)+"px"});
+	});
+	
+	</script>
 
-//program logic for the tooltips
-$("a.preview").hover(function(e){
-	var detailtt = $("#"+$(this).attr("id").slice(0,-2)+"tt");
-	var xCoord = e.pageX - (detailtt.width()+2*xOffset)/$(window).width()*e.pageX + xOffset;
-	var yCoord = e.pageY - yOffset+20;
-	if (yCoord+detailtt.height()>$(window).height()-250) {yCoord -= detailtt.height()+45;}
-	detailtt.css({'visibility':'visible','top':(yCoord)+"px",'left':(xCoord)+"px"}).fadeIn("fast");
-   },
-function(){
-	$("#"+$(this).attr("id").slice(0,-2)+"tt").css({'visibility':'hidden','display':'none'});
-   });
-   
-$("a.preview").mousemove(function(e){
-	var detailtt = $("#"+$(this).attr("id").slice(0,-2)+"tt");
-	var xCoord = e.pageX - (detailtt.width()+2*xOffset)/$(window).width()*e.pageX + xOffset;
-	var yCoord = e.pageY - yOffset+20;
-	if (yCoord+detailtt.height()>$(window).height()-250) {yCoord -= detailtt.height()+45;}	
-	detailtt.css({'top':(yCoord)+"px",'left':(xCoord)+"px"});
-});
-
-</script>
-
-</center>
 </div>
+</div>
+<script>
+	document.getElementById('burger_button').addEventListener('click', function() {
+		const headerMenu = document.querySelector('.header_menu');
+		headerMenu.classList.toggle('active');
+	})
+</script>
 </body>
 </html>

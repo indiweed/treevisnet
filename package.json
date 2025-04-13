@@ -1,0 +1,20 @@
+{
+  "name": "treevisnet",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/vis-au/treevisnet#readme",
+  "bugs": {
+    "url": "https://github.com/vis-au/treevisnet/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vis-au/treevisnet.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "jquery-3.3.1.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
