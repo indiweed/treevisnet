@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Администратор - Авторизация</title>
+</head>
+<body>
+    <div class="auth_container">
+        <div class="login-container">
+            <div class="admin-icon">
+                <i>👨‍💼</i>
+            </div>
+            <div class="login-header">
+                <h1>Вход для администратора</h1>
+                <p>Пожалуйста, введите свои учетные данные</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Логин</label>
+                    <input type="text" id="username" name="username" placeholder="Введите ваш логин" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" name="password" placeholder="Введите ваш пароль" required>
+                </div>
+                
+                <!--<div class="remember-forgot">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Запомнить меня</label>
+                    </div>
+                    <div class="forgot-password">
+                        <a href="#">Забыли пароль?</a>
+                    </div>
+                </div>-->
+                
+                <div class="error-message" id="errorMessage">
+                    Неверный логин или пароль
+                </div>
+                
+                <button type="submit" class="login-button">Войти</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Получаем значения полей
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // Здесь должна быть реальная проверка учетных данных
+            // Это пример - для демонстрации используем фиксированные значения
+            if (username === 'admin' && password === 'admin123') {
+                // Успешная авторизация
+                alert('Авторизация успешна! Перенаправление в админ-панель...');
+                window.location.href = 'admin-panel.html'; // Перенаправление
+            } else {
+                // Показываем сообщение об ошибке
+                document.getElementById('errorMessage').style.display = 'block';
+            }
+        });
+        
+        // Скрываем сообщение об ошибке при изменении полей
+        document.getElementById('username').addEventListener('input', function() {
+            document.getElementById('errorMessage').style.display = 'none';
+        });
+        
+        document.getElementById('password').addEventListener('input', function() {
+            document.getElementById('errorMessage').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
