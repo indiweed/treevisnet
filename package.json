@@ -15,6 +15,10 @@
   "type": "commonjs",
   "main": "jquery-3.3.1.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d build -b gh-pages -r https://github.com/indiweed/treevisnet.git"
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
