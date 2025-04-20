@@ -2,30 +2,6 @@
   "name": "treevisnet",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://indiweed.github.io/treevisnet/",
-  "bugs": {
-    "url": "https://github.com/indiweed/treevisnet/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/indiweed/treevisnet.git"
-  },
-  "license": "ISC",
-  "author": "",
-  "type": "commonjs",
-  "main": "jquery-3.3.1.min.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "gh-pages -d build -b gh-pages -r https://github.com/indiweed/treevisnet.git"
-  },
-  "devDependencies": {
-    "gh-pages": "^5.0.0"
-  }
-}
-{
-  "name": "treevisnet",
-  "version": "1.0.0",
-  "description": "",
   "homepage": "https://github.com/vis-au/treevisnet#readme",
   "bugs": {
     "url": "https://github.com/vis-au/treevisnet/issues"
