@@ -2,13 +2,13 @@
   "name": "treevisnet",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/vis-au/treevisnet#readme",
+  "homepage": "https://indiweed.github.io/treevisnet/",
   "bugs": {
-    "url": "https://github.com/vis-au/treevisnet/issues"
+    "url": "https://github.com/indiweed/treevisnet/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vis-au/treevisnet.git"
+    "url": "git+https://github.com/indiweed/treevisnet.git"
   },
   "license": "ISC",
   "author": "",
