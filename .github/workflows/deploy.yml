@@ -20,6 +20,6 @@ name: Deploy to Server
            chmod 600 private_key
            ssh -o StrictHostKeyChecking=no -i private_key ${SERVER_USER}@${SERVER_IP} "
              cd ${DEPLOY_PATH} &&
-             git pull origin main
+             git pull origin master
            "
            rm private_key
