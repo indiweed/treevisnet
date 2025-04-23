@@ -9,7 +9,7 @@
 <body>
     <div class="admin-container">
         <!-- Боковая панель -->
-        <div class="sidebar">
+        <!--<div class="sidebar">
             <div class="sidebar-header">
                 <h2>Админ-панель</h2>
                 <p>Управление контентом</p>
@@ -25,13 +25,16 @@
                     <i>⚙️</i> Настройки
                 </div>
             </div>
-        </div>
+        </div>-->
         
         <!-- Основное содержимое -->
         <div class="main-content">
             <div class="admin-header">
                 <h1>Управление статьями</h1>
-                <button class="btn btn-primary" id="addArticleBtn">Добавить статью</button>
+                <div class="buttons">
+                    <button class="btn btn-primary" id="addArticleBtn">Добавить статью</button>
+                    <button class="btn btn-danger" id="closeAdminPanel">Выйти</button>
+                </div>
             </div>
             
             <div id="alertMessage" class="alert alert-success" style="display: none;"></div>
@@ -76,6 +79,8 @@
             </div>
         </div>
     </div>
+
+    <script src="/services/close_admin_panel.js"></script>
     
     <script>
         // Имитация базы данных (используем localStorage)

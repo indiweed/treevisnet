@@ -10,8 +10,8 @@ body{
 	text-align:center;
 }
 
-a:link, a:visited { color: #035aa6; }
-a:active, a:hover  { color: #000090; }
+a:link, a:visited { color: white; }
+a:active, a:hover  { color: white; }
 a {text-decoration: none;}
 h1 { font-weight: normal; font-size: 24px; margin: 0px 0 0px 0; }
 h2 { font-weight: bold; font-size: 24px; margin: 0px 0 0px 0; }
@@ -72,6 +72,14 @@ h6 { font-weight: normal; font-size: 14px; margin: 0px 0 0px 0; }
 	color: grey;
 }
 
+.version {
+	position: absolute;
+	left: 170px;
+	top: 22px;
+	font-size: 12px;
+	color: grey;
+}
+
 .header_menu {
 	position: absolute;
 	background-color: #1e1e2e;
@@ -102,6 +110,16 @@ h6 { font-weight: normal; font-size: 14px; margin: 0px 0 0px 0; }
 	text-align: center;
 }
 
+.admin_personal_cabinet {
+	padding: 12px 24px;
+	color: white;
+	border-radius: 5px;
+	font-size: 13px;
+	font-weight: bold;
+	width: 150px;
+	text-align: center;
+}
+
 #hr1	{
 	position:relative;
 	background-color:#555555;
@@ -126,11 +144,11 @@ h6 { font-weight: normal; font-size: 14px; margin: 0px 0 0px 0; }
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-#version {
+/*#version {
 	color:#FDFEFF;
 	font-size:12px;
 	font-weight:bold;
-}
+}*/
 
 #counter {
 	text-align: center;
@@ -297,6 +315,7 @@ ul.noindent {
 	display: flex;
 	justify-content: center;
 	padding-top: 50px;
+	position: relative;
 }
 
 .login-container {
@@ -307,6 +326,17 @@ ul.noindent {
 	max-width: 90%;
 	padding: 40px;
 	text-align: center;
+	position: relative;
+}
+
+.close_auth_admin {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	border: none;
+	cursor: pointer;
+	background-color: white;
+	color: #333;
 }
 
 .login-header {
@@ -474,6 +504,11 @@ ul.noindent {
 
 .admin-header h1 {
 	font-size: 24px;
+}
+
+.buttons {
+	display: flex;
+	gap: 10px;
 }
 
 .btn {
