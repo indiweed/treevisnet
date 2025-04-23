@@ -1,3 +1,3 @@
 document.querySelector('.close_auth_admin').addEventListener('click', () => {
-    window.history.go(-1)
+    window.location.href = 'index.html'
 })
