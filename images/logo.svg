@@ -1,0 +1,12 @@
+<svg id="logo_svg" width="50" viewBox="0 0 160 190" xmlns="http://www.w3.org/2000/svg">
+    <!-- Основная форма щита -->
+    <path d="M80 10 L150 50 V120 C150 150 120 180 80 180 C40 180 10 150 10 120 V50 Z" 
+          fill="#e53e3e" stroke="#c53030" stroke-width="4"/>
+    
+    <!-- Внутренний контур -->
+    <path d="M80 25 L140 60 V115 C140 140 115 160 80 160 C45 160 20 140 20 115 V60 Z" 
+          fill="none" stroke="#fff" stroke-width="2" opacity="0.7"/>
+    
+    <!-- Горизонтальные полосы (опционально) -->
+    <path d="M30 75 H130 M30 95 H130" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+</svg>
