@@ -4,295 +4,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg+xml" href="images/logo.svg">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Админ-панель - Управление статьями</title>
+    <script src="https://cdn.jsdelivr.net/npm/bibtex-parser@latest/dist/bibtex-parser.min.js"></script>
 </head>
 <body>
     <div class="admin-container">
-        <!-- Боковая панель -->
-        <!--<div class="sidebar">
-            <div class="sidebar-header">
-                <h2>Админ-панель</h2>
-                <p>Управление контентом</p>
-            </div>
-            <div class="nav-menu">
-                <div class="nav-item active">
-                    <i>📝</i> Статьи
-                </div>
-                <div class="nav-item">
-                    <i>👥</i> Пользователи
-                </div>
-                <div class="nav-item">
-                    <i>⚙️</i> Настройки
-                </div>
-            </div>
-        </div>-->
-        
         <!-- Основное содержимое -->
         <div class="main-content">
             <div class="admin-header">
-                <h1>Управление статьями</h1>
+                <h1 class="text-dark">Управление статьями</h1>
                 <div class="buttons">
-                    <button class="btn btn-primary" id="addArticleBtn">Добавить статью</button>
-                    <button class="btn btn-danger" id="closeAdminPanel">Выйти</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addArticleModal">
+                        <i class="bi bi-plus-lg"></i> Добавить статью
+                    </button>
+                    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#importBibModal">
+                        <i class="bi bi-file-earmark-arrow-up"></i> Импорт BibTeX
+                    </button>
+                    <button class="btn btn-danger" id="closeAdminPanel">
+                        <i class="bi bi-box-arrow-right"></i> Выйти
+                    </button>
                 </div>
             </div>
             
-            <div id="alertMessage" class="alert alert-success" style="display: none;"></div>
+            <div id="alertMessage" class="alert alert-success alert-dismissible fade show" style="display: none;">
+                <span id="alertText"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
             
             <div class="articles-list">
                 <div class="table-header">
                     <div class="col-id">ID</div>
+                    <div class="col-img">Фото</div>
+                    <div class="col-authors">Авторы</div>
                     <div class="col-title">Название</div>
+                    <div class="col-year">Год</div>
                     <div class="col-date">Дата</div>
                     <div class="col-actions">Действия</div>
                 </div>
                 <div id="articlesContainer">
                     <!-- Статьи будут загружаться здесь -->
+                    <div class="text-center py-4 text-muted">Загрузка статей...</div>
                 </div>
             </div>
         </div>
     </div>
     
-    <!-- Модальное окно для добавления/редактирования статьи -->
-    <div class="modal" id="articleModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="modalTitle">Добавить статью</h3>
-                <button class="close-btn" id="closeModalBtn">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form id="articleForm">
-                    <input type="hidden" id="articleId">
-                    <div class="form-group">
-                        <label for="articleTitle">Название статьи</label>
-                        <input type="text" id="articleTitle" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="articleContent">Содержание</label>
-                        <textarea id="articleContent" required></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button class="btn" id="cancelBtn">Отмена</button>
-                <button class="btn btn-primary" id="saveArticleBtn">Сохранить</button>
+    <!-- Модальное окно для добавления статьи -->
+    <div class="modal fade" id="addArticleModal" tabindex="-1" aria-labelledby="addArticleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addArticleModalLabel">Добавить статью</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="articleForm">
+                        <input type="hidden" id="articleId">
+                        <div class="mb-3">
+                            <label for="imgFileInput" class="form-label">Изображение статьи</label>
+                            <input type="file" class="form-control" id="imgFileInput" accept="image/*">
+                            <img id="imgPreview" style="max-width: 200px; display: none; margin-top: 10px;">
+                        </div>
+                        <div class="mb-3">
+                            <label for="articleAuthors" class="form-label">Авторы</label>
+                            <input type="text" class="form-control" id="articleAuthors" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="articleTitle" class="form-label">Название статьи</label>
+                            <input type="text" class="form-control" id="articleTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="articleTitle" class="form-label">Год</label>
+                            <input type="text" class="form-control" id="articleYear" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="articleTitle" class="form-label">Тэги</label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="articleContent" class="form-label">Содержание</label>
+                            <textarea class="form-control" id="articleContent" rows="8" required></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                    <button type="button" class="btn btn-primary" id="saveArticleBtn">Сохранить</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <script src="services/close_admin_panel.js"></script>
+    <!-- Модальное окно редактирования статьи -->
+<div class="modal fade" id="editArticleModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editArticleModalLabel">Редактировать статью</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="editArticleForm">
+            <input type="hidden" id="editArticleId">
+            <div class="mb-3">
+              <label for="editArticleAuthors" class="form-label">Авторы</label>
+              <input type="text" class="form-control" id="editArticleAuthors">
+            </div>
+            <div class="mb-3">
+              <label for="editArticleTitle" class="form-label">Название статьи</label>
+              <input type="text" class="form-control" id="editArticleTitle" required>
+            </div>
+            <div class="mb-3">
+              <label for="editArticleYear" class="form-label">Год публикации</label>
+              <input type="text" class="form-control" id="editArticleYear">
+            </div>
+            <div class="mb-3">
+              <label for="editArticleContent" class="form-label">Содержание</label>
+              <textarea class="form-control" id="editArticleContent" rows="5" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="editImgFileInput" class="form-label">Изображение</label>
+              <input type="file" class="form-control" id="editImgFileInput" accept="image/*">
+              <div class="mt-2">
+                <img id="editImgPreview" src="#" alt="Превью" style="max-height: 200px; display: none;">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+          <button type="button" class="btn btn-primary" id="updateArticleBtn">Сохранить изменения</button>
+        </div>
+      </div>
+    </div>
+  </div>
     
-    <script>
-        // Имитация базы данных (используем localStorage)
-        const db = {
-            getArticles: () => {
-                const articles = localStorage.getItem('articles');
-                return articles ? JSON.parse(articles) : [];
-            },
-            saveArticle: (article) => {
-                const articles = db.getArticles();
-                if (article.id) {
-                    // Редактирование существующей статьи
-                    const index = articles.findIndex(a => a.id === article.id);
-                    if (index !== -1) {
-                        articles[index] = article;
-                    }
-                } else {
-                    // Добавление новой статьи
-                    article.id = Date.now(); // Используем timestamp как ID
-                    article.createdAt = new Date().toISOString();
-                    articles.push(article);
-                }
-                localStorage.setItem('articles', JSON.stringify(articles));
-                return article;
-            },
-            deleteArticle: (id) => {
-                const articles = db.getArticles().filter(a => a.id !== id);
-                localStorage.setItem('articles', JSON.stringify(articles));
-            }
-        };
-        
-        // DOM элементы
-        const articlesContainer = document.getElementById('articlesContainer');
-        const addArticleBtn = document.getElementById('addArticleBtn');
-        const articleModal = document.getElementById('articleModal');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-        const cancelBtn = document.getElementById('cancelBtn');
-        const saveArticleBtn = document.getElementById('saveArticleBtn');
-        const articleForm = document.getElementById('articleForm');
-        const modalTitle = document.getElementById('modalTitle');
-        const articleId = document.getElementById('articleId');
-        const articleTitle = document.getElementById('articleTitle');
-        const articleContent = document.getElementById('articleContent');
-        const alertMessage = document.getElementById('alertMessage');
-        
-        // Загрузка статей при загрузке страницы
-        function loadArticles() {
-            const articles = db.getArticles();
-            articlesContainer.innerHTML = '';
-            
-            if (articles.length === 0) {
-                articlesContainer.innerHTML = '<div class="table-row" style="justify-content: center; padding: 30px;">Статьи не найдены</div>';
-                return;
-            }
-            
-            articles.forEach(article => {
-                const articleElement = document.createElement('div');
-                articleElement.className = 'table-row';
-                articleElement.innerHTML = `
-                    <div class="col-id">${article.id}</div>
-                    <div class="col-title">${article.title}</div>
-                    <div class="col-date">${formatDate(article.createdAt)}</div>
-                    <div class="col-actions">
-                        <button class="action-btn edit" data-id="${article.id}">Редактировать</button>
-                        <button class="action-btn delete" data-id="${article.id}">Удалить</button>
-                        <button class="action-btn publish" data-id="${article.id}">Загрузить на сайт</button>
-                    </div>
-                `;
-                articlesContainer.appendChild(articleElement);
-            });
-            
-            // Назначение обработчиков для кнопок редактирования и удаления
-            document.querySelectorAll('.action-btn.edit').forEach(btn => {
-                btn.addEventListener('click', () => editArticle(parseInt(btn.dataset.id)));
-            });
-            
-            document.querySelectorAll('.action-btn.delete').forEach(btn => {
-                btn.addEventListener('click', () => deleteArticle(parseInt(btn.dataset.id)));
-            });
-        }
-        
-        // Открытие модального окна для добавления статьи
-        function openAddArticleModal() {
-            modalTitle.textContent = 'Добавить статью';
-            articleId.value = '';
-            articleForm.reset();
-            articleModal.style.display = 'flex';
-        }
-        
-        // Открытие модального окна для редактирования статьи
-        function editArticle(id) {
-            const article = db.getArticles().find(a => a.id === id);
-            if (article) {
-                modalTitle.textContent = 'Редактировать статью';
-                articleId.value = article.id;
-                articleTitle.value = article.title;
-                articleContent.value = article.content;
-                articleModal.style.display = 'flex';
-            }
-        }
-        
-        // Удаление статьи
-        function deleteArticle(id) {
-            if (confirm('Вы уверены, что хотите удалить эту статью?')) {
-                db.deleteArticle(id);
-                loadArticles();
-                showAlert('Статья успешно удалена');
-            }
-        }
-        
-        // Сохранение статьи
-        function saveArticle() {
-            if (!articleTitle.value.trim() || !articleContent.value.trim()) {
-                alert('Все поля должны быть заполнены');
-                return;
-            }
-            // Проверка изменений (только для редактирования)
-            if (articleId.value) {
-                const originalArticle = db.getArticles().find(a => a.id === parseInt(articleId.value));
-                
-                if (originalArticle && 
-                    originalArticle.title === articleTitle.value.trim() && 
-                    originalArticle.content === articleContent.value.trim()) {
-                    return;
-                }
-            }
-            const article = {
-                id: articleId.value ? parseInt(articleId.value) : null,
-                title: articleTitle.value,
-                content: articleContent.value,
-            };
-            db.saveArticle(article);
-            loadArticles();
-            articleModal.style.display = 'none';
-            showAlert(article.id ? 'Статья успешно обновлена' : 'Статья успешно добавлена');
-        }
+    <!-- Модальное окно для импорта BibTeX -->
+    <div class="modal fade" id="importBibModal" tabindex="-1" aria-labelledby="importBibModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="importBibModalLabel">Импорт из BibTeX</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="bibUploadForm">
+                        <div class="mb-3">
+                            <label for="bibFileInput" class="form-label">Выберите .bib файл:</label>
+                            <input class="form-control" type="file" id="bibFileInput" accept=".bib" required>
+                        </div>
+                        <div id="bibPreview" class="mb-3 p-2 border rounded" style="height: 150px; overflow: auto;"></div>
+                        <div id="parsedEntriesContainer" style="display: none;">
+                            <h5 class="mt-3">Распознанные записи:</h5>
+                            <div id="parsedEntriesList" class="list-group"></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary" id="importBibBtn" disabled>Импортировать</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        function formatDate(dateString) {
-            const options = { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric',
-                /*hour: '2-digit',
-                minute: '2-digit'*/
-            };
-            
-            try {
-                const date = dateString ? new Date(dateString) : new Date();
-                return isNaN(date.getTime()) ? 'Нет даты' : date.toLocaleString('ru-RU', options);
-            } catch (e) {
-                return 'Нет даты';
-            }
-        }
-
-        // В loadArticles() добавляем обработчик для кнопки публикации
-        document.querySelectorAll('.action-btn.publish').forEach(btn => {
-            btn.addEventListener('click', () => publishArticle(parseInt(btn.dataset.id)));
-        });
-        
-        // Показать уведомление
-        function showAlert(message) {
-            alertMessage.textContent = message;
-            alertMessage.style.display = 'block';
-            setTimeout(() => {
-                alertMessage.style.display = 'none';
-            }, 3000);
-        }
-        
-        // Закрытие модального окна
-        function closeModal() {
-            articleModal.style.display = 'none';
-        }
-
-        // Функция публикации статьи
-        function publishArticle(id) {
-            const articles = db.getArticles();
-            const article = articles.find(a => a.id === id);
-            
-            if (article) {
-                // Сохраняем в localStorage как опубликованную статью
-                const publishedArticles = JSON.parse(localStorage.getItem('publishedArticles') || []);
-                
-                // Проверяем, не опубликована ли уже эта статья
-                if (!publishedArticles.some(a => a.id === id)) {
-                    publishedArticles.push(article);
-                    localStorage.setItem('publishedArticles', JSON.stringify(publishedArticles));
-                    showAlert('Статья успешно опубликована на сайте');
-                } else {
-                    showAlert('Эта статья уже опубликована', 'error');
-                }
-            }
-        }
-        
-        // Обработчики событий
-        addArticleBtn.addEventListener('click', openAddArticleModal);
-        closeModalBtn.addEventListener('click', closeModal);
-        cancelBtn.addEventListener('click', closeModal);
-        saveArticleBtn.addEventListener('click', saveArticle);
-        
-        // Закрытие модального окна при клике вне его
-        window.addEventListener('click', (e) => {
-            if (e.target === articleModal) {
-                closeModal();
-            }
-        });
-        
-        // Загрузка статей при загрузке страницы
-        document.addEventListener('DOMContentLoaded', loadArticles);
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="services/close_admin_panel.js"></script>
+    <script src="services/modal_window_func.js"></script>
 </body>
 </html>

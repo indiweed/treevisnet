@@ -57,7 +57,7 @@
 
     <div class="container-fluid aside_container">
         <div class="row">
-            <aside id="sidebar" class="col-sm-1" style="min-width: 17em; height: 100vh;">
+            <aside id="sidebar" class="col-sm-1" style="min-width: 17em">
                 <div class="p-2">
                     <div class="d-flex">
                         <h5 class="me-2">Фильтры</h5>
@@ -68,368 +68,149 @@
             
                     <div class="accordion" id="filter-accordion">
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="header-time">
-                                <button class="accordion-button p-2 collapsed" type="button" data-bs-toggle="collapse"                  data-bs-target="#panel-time" aria-expanded="true" aria-controls="panel-time">
-                <i class="ico-timeviz-clock ms-1 me-2"></i>Тип задач ИБ
+                            <h2 class="accordion-header" id="header-type">
+                                <button class="accordion-button p-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panel-type" aria-expanded="true" aria-controls="panel-type">
+                                    <i class="ico-secviz ms-1 me-2"></i>Тип задач ИБ
                                 </button>
                             </h2>
                         
-                            <div id="panel-time" class="accordion-collapse collapse p-2"  aria-labelledby="header-time">
+                            <div id="panel-type" class="accordion-collapse collapse p-2"  aria-labelledby="header-type">
                                 <div class="p-2">
-                <div class="">Primitives</div>
-                <div class="d-flex flex-row align-items-center mb-1">
-                    <i class="ico-timeviz-calendar-week mx-2 my-1"></i>
-                    <div class="flex-grow-1 fw-light">Points</div>
-                    <div class="cat-switch switch-toggle rounded">
-                        <input type="radio" name="points-radio" id="points-want">
-                        <label class="" for="points-want"><i class="bi-eye-fill"></i></label>
+                                    <!--<div class="">Primitives</div>-->
+                                    <div class="d-flex flex-row align-items-center mb-1 border-bottom pb-2">
+                                        <!--<i class="ico-timeviz-calendar-week mx-2 my-1"></i>-->
+                                        <div class="flex-grow-1 fw-light filter-name">Оперативный контроль периметра компьютерной сети</div>
+                                        <input type="checkbox" value="false" name="" id="">
+                                    </div>
 
-                        <input type="radio" name="points-radio" id="points-indifferent" checked>
-                        <label class="border-1 border-start border-end" for="points-indifferent"><i class="bi-eye"></i></label>
+                                    <div class="d-flex flex-row align-items-center mb-1 border-bottom pb-2">
+                                        <div class="flex-grow-1 fw-light filter-name">Обнаружение внутренних нарушителей</div>
+                                        <input type="checkbox" value="false" name="" id="">
+                                    </div>
 
-                        <input type="radio" name="points-radio" id="points-hide">
-                        <label class="" for="points-hide"><i class="bi-eye-slash-fill"></i></label>
+                                    <div class="d-flex flex-row align-items-center mb-1 border-bottom pb-2">
+                                        <div class="flex-grow-1 fw-light filter-name">Оценка уровня защищенности</div>
+                                        <input type="checkbox" value="false" name="" id="">
+                                    </div>
 
-                        <a class="rounded"></a>
-                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-1 border-bottom pb-2">
+                                        <div class="flex-grow-1 fw-light filter-name">Исследование инцидентов безопасности, включая киберпреступления</div>
+                                        <input type="checkbox" value="false" name="" id="">
+                                    </div>
+                                    
+                                    <div class="d-flex flex-row align-items-center mb-1 border-bottom pb-2">
+                                        <div class="flex-grow-1 fw-light filter-name">Исследование вредоносного программного обеспечения</div>
+                                        <input type="checkbox" value="false" name="" id="">
+                                    </div>
 
-                </div>
-
-                <div class="d-flex flex-row align-items-center mb-1">
-                    <i class="ico-timeviz-calendar-range mx-2 my-1"></i>
-                    <div class="flex-grow-1 fw-light">Intervals</div>
-                    <div class="cat-switch switch-toggle rounded">
-                        <input type="radio" name="intervals-radio" id="intervals-want">
-                        <label class="" for="intervals-want"><i class="bi-eye-fill"></i></label>
-
-                        <input type="radio" name="intervals-radio" id="intervals-indifferent" checked>
-                        <label class="border-1 border-start border-end" for="intervals-indifferent"><i class="bi-eye"></i></label>
-
-                        <input type="radio" name="intervals-radio" id="intervals-hide">
-                        <label class="" for="intervals-hide"><i class="bi-eye-slash-fill"></i></label>
-
-                        <a class="rounded"></a>
-                    </div>
-
-                </div>
-
-                                </div>
-                            
-                                <div class="p-2">
-                <div class="">Arrangement</div>
-                <div class="d-flex flex-row align-items-center mb-1">
-                    <i class="ico-timeviz-arrow-right mx-2 my-1"></i>
-                    <div class="flex-grow-1 fw-light">Linear</div>
-                    <div class="cat-switch switch-toggle rounded">
-                        <input type="radio" name="linear-radio" id="linear-want">
-                        <label class="" for="linear-want"><i class="bi-eye-fill"></i></label>
-
-                        <input type="radio" name="linear-radio" id="linear-indifferent" checked>
-                        <label class="border-1 border-start border-end" for="linear-indifferent"><i class="bi-eye"></i></label>
-
-                        <input type="radio" name="linear-radio" id="linear-hide">
-                        <label class="" for="linear-hide"><i class="bi-eye-slash-fill"></i></label>
-
-                        <a class="rounded"></a>
-                    </div>
-
-                </div>
-
-                <div class="d-flex flex-row align-items-center mb-1">
-                    <i class="ico-timeviz-arrow-clockwise mx-2 my-1"></i>
-                    <div class="flex-grow-1 fw-light">Cyclic</div>
-                    <div class="cat-switch switch-toggle rounded">
-                        <input type="radio" name="cyclic-radio" id="cyclic-want">
-                        <label class="" for="cyclic-want"><i class="bi-eye-fill"></i></label>
-
-                        <input type="radio" name="cyclic-radio" id="cyclic-indifferent" checked>
-                        <label class="border-1 border-start border-end" for="cyclic-indifferent"><i class="bi-eye"></i></label>
-
-                        <input type="radio" name="cyclic-radio" id="cyclic-hide">
-                        <label class="" for="cyclic-hide"><i class="bi-eye-slash-fill"></i></label>
-
-                        <a class="rounded"></a>
-                    </div>
-
-                </div>
-
+                                    <div class="d-flex flex-row align-items-center">
+                                        <div class="flex-grow-1 fw-light filter-name">Анализ политик безопасности (контроль доступа к ресурсам системы)</div>
+                                        <input type="checkbox" value="false" name="" id="">
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
+                    </div>  
+                    <div class="accordion mt-2" id="filter-accordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="header-data">
-                                <button class="accordion-button p-2 collapsed" type="button" data-bs-toggle="collapse"                  data-bs-target="#panel-data" aria-expanded="true" aria-controls="panel-data">
-                <i class="ico-timeviz-database ms-1 me-2"></i>Источник данных
+                                <button class="accordion-button p-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panel-data" aria-expanded="true" aria-controls="panel-data">
+                                    <i class="ico-secviz ms-1 me-2"></i>Источник данных
                                 </button>
                             </h2>
                         
                             <div id="panel-data" class="accordion-collapse collapse p-2"  aria-labelledby="header-data">
                                 <div class="p-2">
-                                    <div class="">Number of variables</div>
-                                    <div class="d-flex flex-row align-items-center mb-1">
-                                        <i class="ico-timeviz-graph-up mx-2 my-1"></i>
-                                        <div class="flex-grow-1 fw-light">Single</div>
-                                        <div class="cat-switch switch-toggle rounded">
-                                            <input type="radio" name="single-radio" id="single-want">
-                                            <label class="" for="single-want"><i class="bi-eye-fill"></i></label>
-
-                                            <input type="radio" name="single-radio" id="single-indifferent" checked>
-                                            < class="border-1 border-start border-end" for="single-indifferent"><i class="bi-eye"></i></                label>
-
-                                            <input type="radio" name="single-radio" id="single-hide">
-                                            <label class="" for="single-hide"><i class="bi-eye-slash-fill"></i></label>
-
-                                            <a class="rounded"></a>
-                                        </div>
+                                    <!--<div class="">Primitives</div>-->
+                                    <div class="d-flex flex-row align-items-center mb-1 border-bottom pb-2">
+                                        <!--<i class="ico-timeviz-calendar-week mx-2 my-1"></i>-->
+                                        <div class="flex-grow-1 fw-light filter-name">Сетевой трафик</div>
+                                        <input type="checkbox" value="false" name="" id="">
                                     </div>
 
-                <div class="d-flex flex-row align-items-center mb-1">
-                    <i class="ico-timeviz-graph-up-multi mx-2 my-1"></i>
-                    <div class="flex-grow-1 fw-light">Multiple</div>
-                    <div class="cat-switch switch-toggle rounded">
-                        <input type="radio" name="multiple-radio" id="multiple-want">
-                        <label class="" for="multiple-want"><i class="bi-eye-fill"></i></label>
+                                    <div class="d-flex flex-row align-items-center mb-1 border-bottom pb-2">
+                                        <div class="flex-grow-1 fw-light filter-name">Системные события</div>
+                                        <input type="checkbox" value="false" name="" id="">
+                                    </div>
 
-                        <input type="radio" name="multiple-radio" id="multiple-indifferent" checked>
-                        <label class="border-1 border-start border-end" for="multiple-indifferent"><i class="bi-eye"></i></label>
-
-                        <input type="radio" name="multiple-radio" id="multiple-hide">
-                        <label class="" for="multiple-hide"><i class="bi-eye-slash-fill"></i></label>
-
-                        <a class="rounded"></a>
-                    </div>
-
-                </div>
-
+                                    <div class="d-flex flex-row align-items-center">
+                                        <div class="flex-grow-1 fw-light filter-name">Программный код</div>
+                                        <input type="checkbox" value="false" name="" id="">
+                                    </div>
                                 </div>
-                            
-                                <div class="p-2">
-                <div class="">Frame of reference</div>
-                <div class="d-flex flex-row align-items-center mb-1">
-                    <i class="ico-timeviz-table mx-2 my-1"></i>
-                    <div class="flex-grow-1 fw-light">Abstract</div>
-                    <div class="cat-switch switch-toggle rounded">
-                        <input type="radio" name="abstract-radio" id="abstract-want">
-                        <label class="" for="abstract-want"><i class="bi-eye-fill"></i></label>
-
-                        <input type="radio" name="abstract-radio" id="abstract-indifferent" checked>
-                        <label class="border-1 border-start border-end" for="abstract-indifferent"><i class="bi-eye"></i></label>
-
-                        <input type="radio" name="abstract-radio" id="abstract-hide">
-                        <label class="" for="abstract-hide"><i class="bi-eye-slash-fill"></i></label>
-
-                        <a class="rounded"></a>
-                    </div>
-
-                </div>
-
-                <div class="d-flex flex-row align-items-center mb-1">
-                    <i class="ico-timeviz-globe mx-2 my-1"></i>
-                    <div class="flex-grow-1 fw-light">Spatial</div>
-                    <div class="cat-switch switch-toggle rounded">
-                        <input type="radio" name="spatial-radio" id="spatial-want">
-                        <label class="" for="spatial-want"><i class="bi-eye-fill"></i></label>
-
-                        <input type="radio" name="spatial-radio" id="spatial-indifferent" checked>
-                        <label class="border-1 border-start border-end" for="spatial-indifferent"><i class="bi-eye"></i></label>
-
-                        <input type="radio" name="spatial-radio" id="spatial-hide">
-                        <label class="" for="spatial-hide"><i class="bi-eye-slash-fill"></i></label>
-
-                        <a class="rounded"></a>
-                    </div>
-
-                </div>
-
-                                </div>
-
                             </div>
                         </div>
+                    </div>   
+                    <div class="accordion mt-2" id="filter-accordion">
                         <div class="accordion-item">
-        <h2 class="accordion-header" id="header-visrep">
-            <button class="accordion-button p-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panel-visrep" aria-expanded="true" aria-controls="panel-visrep">
-                <i class="ico-timeviz-image ms-1 me-2"></i>Размерность
-            </button>
-        </h2>
+                            <h2 class="accordion-header" id="header-dim">
+                                <button class="accordion-button p-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panel-dim" aria-expanded="true" aria-controls="panel-dim">
+                                    <i class="ico-secviz ms-1 me-2"></i>Размерность
+                                </button>
+                            </h2>
+                        
+                            <div id="panel-dim" class="accordion-collapse collapse p-2"  aria-labelledby="header-dim">
+                                <div class="p-2">
+                                    <!--<div class="">Primitives</div>-->
+                                    <div class="d-flex flex-row align-items-center mb-1 border-bottom pb-2">
+                                        <!--<i class="ico-timeviz-calendar-week mx-2 my-1"></i>-->
+                                        <div class="flex-grow-1 fw-light filter-name">2D</div>
+                                        <input type="checkbox" value="false" name="" id="">
+                                    </div>
 
-        <div id="panel-visrep" class="accordion-collapse collapse p-2"  aria-labelledby="header-visrep">
-            <div class="p-2">
-                <div class="">Mapping of time</div>
-                <div class="d-flex flex-row align-items-center mb-1">
-                    <i class="ico-timeviz-camera mx-2 my-1"></i>
-                    <div class="flex-grow-1 fw-light">Static</div>
-                    <div class="cat-switch switch-toggle rounded">
-                        <input type="radio" name="static-radio" id="static-want">
-                        <label class="" for="static-want"><i class="bi-eye-fill"></i></label>
-
-                        <input type="radio" name="static-radio" id="static-indifferent" checked>
-                        <label class="border-1 border-start border-end" for="static-indifferent"><i class="bi-eye"></i></label>
-
-                        <input type="radio" name="static-radio" id="static-hide">
-                        <label class="" for="static-hide"><i class="bi-eye-slash-fill"></i></label>
-
-                        <a class="rounded"></a>
-                    </div>
-
-                </div>
-
-                <div class="d-flex flex-row align-items-center mb-1">
-                    <i class="ico-timeviz-camera-video mx-2 my-1"></i>
-                    <div class="flex-grow-1 fw-light">Dynamic</div>
-                    <div class="cat-switch switch-toggle rounded">
-                        <input type="radio" name="dynamic-radio" id="dynamic-want">
-                        <label class="" for="dynamic-want"><i class="bi-eye-fill"></i></label>
-
-                        <input type="radio" name="dynamic-radio" id="dynamic-indifferent" checked>
-                        <label class="border-1 border-start border-end" for="dynamic-indifferent"><i class="bi-eye"></i></label>
-
-                        <input type="radio" name="dynamic-radio" id="dynamic-hide">
-                        <label class="" for="dynamic-hide"><i class="bi-eye-slash-fill"></i></label>
-
-                        <a class="rounded"></a>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="p-2">
-                <div class="">Dimensionality</div>
-                <div class="d-flex flex-row align-items-center mb-1">
-                    <i class="ico-timeviz-square mx-2 my-1"></i>
-                    <div class="flex-grow-1 fw-light">2D</div>
-                    <div class="cat-switch switch-toggle rounded">
-                        <input type="radio" name="2d-radio" id="2d-want">
-                        <label class="" for="2d-want"><i class="bi-eye-fill"></i></label>
-
-                        <input type="radio" name="2d-radio" id="2d-indifferent" checked>
-                        <label class="border-1 border-start border-end" for="2d-indifferent"><i class="bi-eye"></i></label>
-
-                        <input type="radio" name="2d-radio" id="2d-hide">
-                        <label class="" for="2d-hide"><i class="bi-eye-slash-fill"></i></label>
-
-                        <a class="rounded"></a>
-                    </div>
-
-                </div>
-
-                <div class="d-flex flex-row align-items-center mb-1">
-                    <i class="ico-timeviz-box mx-2 my-1"></i>
-                    <div class="flex-grow-1 fw-light">3D</div>
-                    <div class="cat-switch switch-toggle rounded">
-                        <input type="radio" name="3d-radio" id="3d-want">
-                        <label class="" for="3d-want"><i class="bi-eye-fill"></i></label>
-
-                        <input type="radio" name="3d-radio" id="3d-indifferent" checked>
-                        <label class="border-1 border-start border-end" for="3d-indifferent"><i class="bi-eye"></i></label>
-
-                        <input type="radio" name="3d-radio" id="3d-hide">
-                        <label class="" for="3d-hide"><i class="bi-eye-slash-fill"></i></label>
-
-                        <a class="rounded"></a>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
+                                    <div class="d-flex flex-row align-items-center">
+                                        <div class="flex-grow-1 fw-light filter-name">3D</div>
+                                        <input type="checkbox" value="false" name="" id="">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>  
+                    <div class="accordion mt-2" id="filter-accordion">
                         <div class="accordion-item">
-        <h2 class="accordion-header" id="header-visrep">
-            <button class="accordion-button p-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panel-visrep" aria-expanded="true" aria-controls="panel-visrep">
-                <i class="ico-timeviz-image ms-1 me-2"></i>Тип методики визуализации
-            </button>
-        </h2>
+                            <h2 class="accordion-header" id="header-vis-method">
+                                <button class="accordion-button p-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panel-vis-method" aria-expanded="true" aria-controls="panel-vis-method">
+                                    <i class="ico-secviz ms-1 me-2"></i>Тип методики визуализации
+                                </button>
+                            </h2>
+                        
+                            <div id="panel-vis-method" class="accordion-collapse collapse p-2"  aria-labelledby="header-vis-method">
+                                <div class="p-2">
+                                    <!--<div class="">Primitives</div>-->
+                                    <div class="d-flex flex-row align-items-center mb-1 border-bottom pb-2">
+                                        <!--<i class="ico-timeviz-calendar-week mx-2 my-1"></i>-->
+                                        <div class="flex-grow-1 fw-light filter-name">Стандартные методы визуализации</div>
+                                        <input type="checkbox" value="false" name="" id="">
+                                    </div>
 
-        <div id="panel-visrep" class="accordion-collapse collapse p-2"  aria-labelledby="header-visrep">
-            <div class="p-2">
-                <div class="">Mapping of time</div>
-                <div class="d-flex flex-row align-items-center mb-1">
-                    <i class="ico-timeviz-camera mx-2 my-1"></i>
-                    <div class="flex-grow-1 fw-light">Static</div>
-                    <div class="cat-switch switch-toggle rounded">
-                        <input type="radio" name="static-radio" id="static-want">
-                        <label class="" for="static-want"><i class="bi-eye-fill"></i></label>
+                                    <div class="d-flex flex-row align-items-center mb-1 border-bottom pb-2">
+                                        <!--<i class="ico-timeviz-calendar-week mx-2 my-1"></i>-->
+                                        <div class="flex-grow-1 fw-light filter-name">Пиктограммы</div>
+                                        <input type="checkbox" value="false" name="" id="">
+                                    </div>
 
-                        <input type="radio" name="static-radio" id="static-indifferent" checked>
-                        <label class="border-1 border-start border-end" for="static-indifferent"><i class="bi-eye"></i></label>
+                                    <div class="d-flex flex-row align-items-center mb-1 border-bottom pb-2">
+                                        <!--<i class="ico-timeviz-calendar-week mx-2 my-1"></i>-->
+                                        <div class="flex-grow-1 fw-light filter-name">На основе пиксельного представления</div>
+                                        <input type="checkbox" value="false" name="" id="">
+                                    </div>
 
-                        <input type="radio" name="static-radio" id="static-hide">
-                        <label class="" for="static-hide"><i class="bi-eye-slash-fill"></i></label>
+                                    <div class="d-flex flex-row align-items-center mb-1 border-bottom pb-2">
+                                        <!--<i class="ico-timeviz-calendar-week mx-2 my-1"></i>-->
+                                        <div class="flex-grow-1 fw-light filter-name">Графы/деревья</div>
+                                        <input type="checkbox" value="false" name="" id="">
+                                    </div>
 
-                        <a class="rounded"></a>
-                    </div>
-
-                </div>
-
-                <div class="d-flex flex-row align-items-center mb-1">
-                    <i class="ico-timeviz-camera-video mx-2 my-1"></i>
-                    <div class="flex-grow-1 fw-light">Dynamic</div>
-                    <div class="cat-switch switch-toggle rounded">
-                        <input type="radio" name="dynamic-radio" id="dynamic-want">
-                        <label class="" for="dynamic-want"><i class="bi-eye-fill"></i></label>
-
-                        <input type="radio" name="dynamic-radio" id="dynamic-indifferent" checked>
-                        <label class="border-1 border-start border-end" for="dynamic-indifferent"><i class="bi-eye"></i></label>
-
-                        <input type="radio" name="dynamic-radio" id="dynamic-hide">
-                        <label class="" for="dynamic-hide"><i class="bi-eye-slash-fill"></i></label>
-
-                        <a class="rounded"></a>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="p-2">
-                <div class="">Dimensionality</div>
-                <div class="d-flex flex-row align-items-center mb-1">
-                    <i class="ico-timeviz-square mx-2 my-1"></i>
-                    <div class="flex-grow-1 fw-light">2D</div>
-                    <div class="cat-switch switch-toggle rounded">
-                        <input type="radio" name="2d-radio" id="2d-want">
-                        <label class="" for="2d-want"><i class="bi-eye-fill"></i></label>
-
-                        <input type="radio" name="2d-radio" id="2d-indifferent" checked>
-                        <label class="border-1 border-start border-end" for="2d-indifferent"><i class="bi-eye"></i></label>
-
-                        <input type="radio" name="2d-radio" id="2d-hide">
-                        <label class="" for="2d-hide"><i class="bi-eye-slash-fill"></i></label>
-
-                        <a class="rounded"></a>
-                    </div>
-
-                </div>
-
-                <div class="d-flex flex-row align-items-center mb-1">
-                    <i class="ico-timeviz-box mx-2 my-1"></i>
-                    <div class="flex-grow-1 fw-light">3D</div>
-                    <div class="cat-switch switch-toggle rounded">
-                        <input type="radio" name="3d-radio" id="3d-want">
-                        <label class="" for="3d-want"><i class="bi-eye-fill"></i></label>
-
-                        <input type="radio" name="3d-radio" id="3d-indifferent" checked>
-                        <label class="border-1 border-start border-end" for="3d-indifferent"><i class="bi-eye"></i></label>
-
-                        <input type="radio" name="3d-radio" id="3d-hide">
-                        <label class="" for="3d-hide"><i class="bi-eye-slash-fill"></i></label>
-
-                        <a class="rounded"></a>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
+                                    <div class="d-flex flex-row align-items-center">
+                                        <div class="flex-grow-1 fw-light filter-name">На основе геометрических преобразований</div>
+                                        <input type="checkbox" value="false" name="" id="">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>                
-</div>
+                    </div>             
+                </div>
+                
                 <!--<div class="p-2 border-bottom">
                     <h5>Tags</h5>
                     <div id="tags"></div>
