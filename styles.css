@@ -1,3 +1,12 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 a {
     text-decoration: none;
     cursor: pointer;
@@ -9,6 +18,15 @@ a:hover {
 
 header, .aside_container {
     background-color: #F8FAFC;
+}
+
+.aside_container {
+    flex: 1;
+    min-height: 0;
+}
+
+#tec-container {
+    height: 100vh;
 }
 
 .logo_container {
@@ -262,65 +280,65 @@ header, .aside_container {
 /* Admin-panel */
 
 .admin-container {
-            display: flex;
-            min-height: 100vh;
-        }
-        
-        .main-content {
-            flex: 1;
-            padding: 20px;
-            background-color: #f8f9fa;
-        }
-        
-        .admin-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .articles-list {
-            background: white;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .table-header, .article-row {
-            display: grid;
-			grid-template-columns: repeat(7, 1fr);
-            gap: 15px;
-            padding: 12px 15px;
-            align-items: center;
-        }
-        
-        .table-header {
-            font-weight: bold;
-            border-bottom: 2px solid #dee2e6;
-        }
-        
-        .article-row {
-            border-bottom: 1px solid #eee;
-        }
-        
-        .article-row:hover {
-            background-color: #f8f9fa;
-        }
-        
-        .action-btn {
-            margin-right: 5px;
-        }
-        
-        .bib-preview {
-            max-height: 200px;
-            overflow-y: auto;
-            background-color: #f8f9fa;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 10px;
-            font-family: monospace;
-            white-space: pre-wrap;
-        }
+    display: flex;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.articles-list {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.table-header, .article-row {
+    display: grid;
+	grid-template-columns: repeat(7, 1fr);
+    gap: 15px;
+    padding: 12px 15px;
+    align-items: center;
+}
+
+.table-header {
+    font-weight: bold;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.article-row {
+    border-bottom: 1px solid #eee;
+}
+
+.article-row:hover {
+    background-color: #f8f9fa;
+}
+
+.action-btn {
+    margin-right: 5px;
+}
+
+.bib-preview {
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-family: monospace;
+    white-space: pre-wrap;
+}
 
 /* /Admin-panel */
 
