@@ -20,8 +20,5 @@
   },
   "devDependencies": {
     "gh-pages": "^5.0.0"
-  },
-  "dependencies": {
-    "bibtex-parser": "^0.0.0"
   }
 }

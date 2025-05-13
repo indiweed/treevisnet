@@ -26,3 +26,11 @@ pnpm-debug.log*
 # files
 styles-old.css
 index-old.html
+jquery-3.3.1.min.js
+treevis.bib
+treevis.xml
+
+# folders
+bibentries/
+thumbs100png/
+thumbs200png/
